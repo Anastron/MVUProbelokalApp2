@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="samdev.de.mvuprobelokalapp.SorryMail"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"/>
+
+
+
+    <TextView
+        android:layout_below="@id/app_bar"
+        android:id="@+id/text1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Ausfüllen und Senden"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/recipient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:ems="10"
+        android:textSize="10sp"
+        android:paddingBottom="10dp" />
+
+
+    <EditText
+        android:id="@+id/subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Betreff" />
+
+    <EditText
+        android:id="@+id/body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nachricht"
+        android:layout_weight="0.25" />
+
+    <ImageButton
+        android:id="@+id/sendEmail"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/ic_mailsend"
+        android:icon="@drawable/ic_mailsend"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MVU App</string>
+    <string name="title_activity_main">MVU App</string>
+
+    <string name="hello_world">Hallo Musikverein Unterharmersbach!</string>
+    <string name="action_settings">Settings</string>
+    <string name="earth">Next</string>
+    <string name="sorrymail">Sorrymail</string>
+    <string name="title_activity_sorry_mail">Sorrymail</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+
+</resources>
