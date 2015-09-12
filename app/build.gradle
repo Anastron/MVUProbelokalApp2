@@ -8,8 +8,8 @@ android {
         applicationId "samdev.de.mvuprobelokalapp"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 011
-        versionName "0.1.1"
+        versionCode 012
+        versionName "0.1.2"
     }
     buildTypes {
         release {

@@ -34,7 +34,7 @@ public class SorryMail extends AppCompatActivity {
         recipient = (TextView) findViewById(R.id.recipient);
         subject = (EditText) findViewById(R.id.subject);
         body = (EditText) findViewById(R.id.body);
-        recipient.setText("entschuldigung@musikverein-unterharmersbach.de");
+        recipient.setText("entschuldigung@mv-uh.de");
 
 
         ImageButton sendBtn = (ImageButton) findViewById(R.id.sendEmail);
@@ -42,7 +42,7 @@ public class SorryMail extends AppCompatActivity {
             public void onClick(View view) {
                 sendEmail();
                 // after sending the email, clear the fields
-                recipient.setText("entschuldigung@musikverein-unterharmersbach.de");
+                recipient.setText("entschuldigung@mv-uh.de");
                 subject.setText("");
                 body.setText("");
             }
@@ -51,7 +51,7 @@ public class SorryMail extends AppCompatActivity {
 
     protected void sendEmail() {
 
-        String[] recipients = {"benz.armin89@gmail.de"};
+        String[] recipients = {"entschuldigung@mv-uh.de"};
         Intent email = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
         // prompts email clients only
         email.setType("message/rfc822");
