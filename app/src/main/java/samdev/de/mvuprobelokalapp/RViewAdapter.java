@@ -24,6 +24,11 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.MyViewHolder
         this.data = data;
     }
 
+    public void delete(int position){
+        data.remove(position);
+        notifyItemRemoved(position);
+    }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.custom_row, parent, false);
@@ -44,13 +49,19 @@ public class RViewAdapter extends RecyclerView.Adapter<RViewAdapter.MyViewHolder
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView title;
         ImageView icon;
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView)itemView.findViewById(R.id.listText);
             icon = (ImageView)itemView.findViewById(R.id.listIcon);
+            icon.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+//            delete(getPosition());
         }
     }
 }

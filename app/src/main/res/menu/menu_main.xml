@@ -14,16 +14,15 @@
         app:showAsAction="never"
         android:title="Info"/>
 
-
     <item android:id="@+id/navigate_hp"
         android:title="@string/earth"
         android:orderInCategory="200"
-        android:icon="@drawable/ic_earth"
+        android:icon="@drawable/ic_public_white_36dp"
         app:showAsAction="always"/>
 
     <item android:id="@+id/sorrymail"
         android:title="@string/sorrymail"
         android:orderInCategory="300"
-        android:icon="@drawable/ic_mail"
+        android:icon="@drawable/ic_mail_white_36dp"
         app:showAsAction="always"/>
 </menu>
