@@ -92,6 +92,7 @@ public class SorryMail extends AppCompatActivity {
 
         if(id == android.R.id.home){
             NavUtils.navigateUpFromSameTask(this);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

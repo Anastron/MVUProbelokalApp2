@@ -46,6 +46,9 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id == R.id.action_info){
+            startActivity(new Intent(this, AppInfo.class));
+        }
 
         if(id == R.id.navigate_hp){
             Intent myFollowMeWebLink = new Intent(android.content.Intent.ACTION_VIEW);

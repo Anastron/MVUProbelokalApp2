@@ -8,6 +8,13 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_info"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="Info"/>
+
+
     <item android:id="@+id/navigate_hp"
         android:title="@string/earth"
         android:orderInCategory="200"
@@ -16,7 +23,7 @@
 
     <item android:id="@+id/sorrymail"
         android:title="@string/sorrymail"
-        android:orderInCategory="200"
+        android:orderInCategory="300"
         android:icon="@drawable/ic_mail"
         app:showAsAction="always"/>
 </menu>
