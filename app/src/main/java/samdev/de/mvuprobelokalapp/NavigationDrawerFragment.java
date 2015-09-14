@@ -3,6 +3,7 @@ package samdev.de.mvuprobelokalapp;
 
 import android.app.SharedElementCallback;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -66,6 +67,7 @@ public class NavigationDrawerFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
+
                 Toast.makeText(getActivity(), "onClick " + position, Toast.LENGTH_SHORT).show();
             }
 
