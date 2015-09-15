@@ -67,7 +67,9 @@ public class NavigationDrawerFragment extends Fragment {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-
+                if(position == 5) {
+                    startActivity(new Intent(getActivity(), AppInfo.class));
+                }
                 Toast.makeText(getActivity(), "onClick " + position, Toast.LENGTH_SHORT).show();
             }
 
