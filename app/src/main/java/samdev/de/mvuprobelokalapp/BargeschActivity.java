@@ -30,7 +30,7 @@ public class BargeschActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_bargesch, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -44,6 +44,18 @@ public class BargeschActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        if(id == R.id.action_info){
+            startActivity(new Intent(this, AppInfo.class));
+        }
+
+        if(id == R.id.navigate_hp){
+            Intent myFollowMeWebLink = new Intent(android.content.Intent.ACTION_VIEW);
+            myFollowMeWebLink.setData(Uri.parse("http://www.musikverein-unterharmersbach.de/"));
+            startActivity(myFollowMeWebLink);
+        }
+        if(id == R.id.sorrymail){
+            startActivity(new Intent(this, SorryMail.class));
         }
 
 
