@@ -13,9 +13,15 @@ import android.view.MenuItem;
 public class MainActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
+    private boolean userAvailable = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(userAvailable == false) {
+            startActivity(new Intent(this, LoginActivity.class));
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_appbar);
 
