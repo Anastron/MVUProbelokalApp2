@@ -69,9 +69,14 @@ public class NavigationDrawerFragment extends Fragment {
             public void onClick(View view, int position) {
                 if(position == 0){
                     startActivity(new Intent(getActivity(), BargeschActivity.class));
-                }
-                if(position == 5){
+                    
+
+                } else if (position == 1){
+                    startActivity(new Intent(getActivity(), StatistikActivity.class));
+
+                } else if(position == 5){
                     startActivity(new Intent(getActivity(), AppInfo.class));
+
                 }
                 else {
                     Toast.makeText(getActivity(), "onClick " + position, Toast.LENGTH_SHORT).show();

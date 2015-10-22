@@ -23,19 +23,19 @@ import android.widget.TextView;
 
 
 
-public class BargeschActivity extends ActionBarActivity {
+public class StatistikActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
     private TabLayout mTabLayout;
     private ViewPager mPager;
-    private MyPagerAdapter mAdapter;
+    private StatisticPagerAdapter mAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bargesch);
-        mAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        setContentView(R.layout.activity_statistik);
+        mAdapter = new StatisticPagerAdapter(getSupportFragmentManager());
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -44,8 +44,8 @@ public class BargeschActivity extends ActionBarActivity {
                 (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout_statistik);
+        mPager = (ViewPager) findViewById(R.id.pagerStatistik);
         mPager.setAdapter(mAdapter);
         mTabLayout.setTabsFromPagerAdapter(mAdapter);
 
@@ -91,19 +91,19 @@ public class BargeschActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class EinkaufFragment extends Fragment{
+    public static class AllgemeinStatistikFragment extends Fragment{
         public static final java.lang.String ARG_PAGE = "arg_page";
 
-        public EinkaufFragment(){
+        public AllgemeinStatistikFragment(){
 
         }
 
-        public static EinkaufFragment newInstance(int pageNumber){
-            EinkaufFragment einkaufFragment = new EinkaufFragment();
+        public static AllgemeinStatistikFragment newInstance(int pageNumber){
+            AllgemeinStatistikFragment allgemeinStatistikFragment = new AllgemeinStatistikFragment();
             Bundle arguments = new Bundle();
             arguments.putInt(ARG_PAGE, pageNumber);
-            einkaufFragment.setArguments(arguments);
-            return einkaufFragment;
+            allgemeinStatistikFragment.setArguments(arguments);
+            return allgemeinStatistikFragment;
         }
 
         @Override
@@ -111,25 +111,25 @@ public class BargeschActivity extends ActionBarActivity {
             Bundle arguments = getArguments();
             int pageNumber = arguments.getInt(ARG_PAGE);
             TextView myText = new TextView(getActivity());
-            myText.setText("Kauf");
+            myText.setText("Allgemeine Statistiken über den Kauf von verschiedenen Produkten im Probelokal");
             myText.setGravity(Gravity.CENTER);
             return myText;
         }
     }
 
-    public static class BezahlenFragment extends Fragment{
+    public static class WeitereTabsFragment extends Fragment{
         public static final java.lang.String ARG_PAGE = "arg_page";
 
-        public BezahlenFragment(){
+        public WeitereTabsFragment(){
 
         }
 
-        public static BezahlenFragment newInstance(int pageNumber){
-            BezahlenFragment bezahlenFragment = new BezahlenFragment();
+        public static WeitereTabsFragment newInstance(int pageNumber){
+            WeitereTabsFragment weitereTabsFragmentt = new WeitereTabsFragment();
             Bundle arguments = new Bundle();
             arguments.putInt(ARG_PAGE, pageNumber);
-            bezahlenFragment.setArguments(arguments);
-            return bezahlenFragment;
+            weitereTabsFragmentt.setArguments(arguments);
+            return weitereTabsFragmentt;
         }
 
         @Override
@@ -137,7 +137,7 @@ public class BargeschActivity extends ActionBarActivity {
             Bundle arguments = getArguments();
             int pageNumber = arguments.getInt(ARG_PAGE);
             TextView myText = new TextView(getActivity());
-            myText.setText("Bezahlen");
+            myText.setText("Es werden noch weitere Statistiken hinzukommen. Zunächst wird aber die allgemeine Statistik implementiert");
             myText.setGravity(Gravity.CENTER);
             return myText;
         }
@@ -146,20 +146,20 @@ public class BargeschActivity extends ActionBarActivity {
 }
 
 
-class MyPagerAdapter extends FragmentPagerAdapter{
+class StatisticPagerAdapter extends FragmentPagerAdapter{
     static private int anzahlTabs = 2;
 
-    public MyPagerAdapter(FragmentManager fm){
+    public StatisticPagerAdapter(FragmentManager fm){
         super(fm);
     }
     @Override
     public Fragment getItem(int position){
         if(position == 0) {
-            BargeschActivity.EinkaufFragment einkaufFragment = BargeschActivity.EinkaufFragment.newInstance(position);
-            return einkaufFragment;
+            StatistikActivity.AllgemeinStatistikFragment  allgemeinStatistikFragment=  StatistikActivity.AllgemeinStatistikFragment.newInstance(position);
+            return allgemeinStatistikFragment;
         } else if(position == 1){
-            BargeschActivity.BezahlenFragment bezahlenFragment = BargeschActivity.BezahlenFragment.newInstance(position);
-            return bezahlenFragment;
+            StatistikActivity.WeitereTabsFragment  weitereTabsFragment=  StatistikActivity.WeitereTabsFragment.newInstance(position);
+            return weitereTabsFragment;
         }
         return null;
     }
@@ -172,13 +172,12 @@ class MyPagerAdapter extends FragmentPagerAdapter{
     @Override
     public CharSequence getPageTitle(int position){
         if(position == 0) {
-            return "Einkauf";
+            return "Allg. Statistiken";
         } else if (position == 1){
-            return "Einzahlung";
+            return "Mehr";
         } else {
             return null;
         }
 
     }
 }
-

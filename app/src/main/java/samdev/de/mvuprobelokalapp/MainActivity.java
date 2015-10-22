@@ -18,7 +18,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if(userAvailable == false) {
+        if(userAvailable) {
             startActivity(new Intent(this, LoginActivity.class));
         }
 

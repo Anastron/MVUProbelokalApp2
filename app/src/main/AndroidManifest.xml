@@ -33,15 +33,22 @@
             android:label="@string/title_activity_app_info" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".MainActivity"
+                />
         </activity>
         <activity
             android:name=".BargeschActivity"
-            android:label="@string/title_activity_bargesch" >
+            android:label="@string/title_activity_bargesch"
+            android:launchMode="singleTask">
         </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up" >
+        </activity>
+        <activity
+            android:name=".StatistikActivity"
+            android:label="@string/title_activity_statistik"
+            android:launchMode="singleTask">
         </activity>
     </application>
 

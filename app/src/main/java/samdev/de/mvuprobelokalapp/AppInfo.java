@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class AppInfo extends AppCompatActivity {
 
@@ -19,6 +20,11 @@ public class AppInfo extends AppCompatActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String versionName = BuildConfig.VERSION_NAME;
+        TextView versionNameView = (TextView) findViewById(R.id.versionName);
+        versionNameView.setText("v" + versionName);
+
     }
 
     @Override
