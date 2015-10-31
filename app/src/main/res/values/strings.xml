@@ -10,13 +10,13 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="title_activity_app_info">AppInfo</string>
-    <string name="title_activity_bargesch">BargeschActivity</string>
+    <string name="title_activity_bargesch">Bargeschäfte</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_sign_up">SignUpActivity</string>
-    <string name="title_activity_statistik">StatistikActivity</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_statistik">Statistiken</string>
 
 
 </resources>

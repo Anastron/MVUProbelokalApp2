@@ -17,7 +17,6 @@
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,20 +25,19 @@
             android:label="@string/title_activity_sorry_mail" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".BargeschActivity" />
         </activity>
         <activity
             android:name=".AppInfo"
             android:label="@string/title_activity_app_info" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
+                android:value=".BargeschActivity"
                 />
         </activity>
         <activity
             android:name=".BargeschActivity"
-            android:label="@string/title_activity_bargesch"
-            android:launchMode="singleTask">
+            android:label="@string/title_activity_bargesch">
         </activity>
         <activity
             android:name=".SignUpActivity"
@@ -47,8 +45,8 @@
         </activity>
         <activity
             android:name=".StatistikActivity"
-            android:label="@string/title_activity_statistik"
-            android:launchMode="singleTask">
+            android:label="@string/title_activity_statistik">
+
         </activity>
     </application>
 

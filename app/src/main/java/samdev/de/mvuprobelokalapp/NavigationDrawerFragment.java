@@ -69,19 +69,21 @@ public class NavigationDrawerFragment extends Fragment {
             public void onClick(View view, int position) {
                 if(position == 0){
                     startActivity(new Intent(getActivity(), BargeschActivity.class));
-                    
-
+                    getActivity().finish();
                 } else if (position == 1){
                     startActivity(new Intent(getActivity(), StatistikActivity.class));
-
+                    getActivity().finish();
+                } else if(position == 4){
+                    startActivity(new Intent(getActivity(), MainActivity.class));
+                    getActivity().finish();
                 } else if(position == 5){
                     startActivity(new Intent(getActivity(), AppInfo.class));
-
                 }
                 else {
                     Toast.makeText(getActivity(), "onClick " + position, Toast.LENGTH_SHORT).show();
                 }
             }
+
 
             @Override
             public void onLongClick(View view, int position) {
