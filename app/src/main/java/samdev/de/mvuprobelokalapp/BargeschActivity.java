@@ -3,6 +3,8 @@ package samdev.de.mvuprobelokalapp;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,23 +21,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 
 public class BargeschActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
-    private TabLayout mTabLayout;
-    private ViewPager mPager;
-    private MyPagerAdapter mAdapter;
+//    private TabLayout mTabLayout;
+//    private ViewPager mPager;
+//    private MyPagerAdapter mAdapter;
+    private FloatingActionButton mFAB;
+    private LinearLayout mRoot;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bargesch);
-        mAdapter = new MyPagerAdapter(getSupportFragmentManager());
+        mRoot = (LinearLayout) findViewById(R.id.root_activity_bargesch);
+//        mAdapter = new MyPagerAdapter(getSupportFragmentManager());
         toolbar = (Toolbar)findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -44,14 +53,45 @@ public class BargeschActivity extends ActionBarActivity {
                 (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
 
-        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPager.setAdapter(mAdapter);
-        mTabLayout.setTabsFromPagerAdapter(mAdapter);
 
-        mTabLayout.setupWithViewPager(mPager);
-        mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
+        com.getbase.floatingactionbutton.FloatingActionButton actionD = new com.getbase.floatingactionbutton.FloatingActionButton(getBaseContext());
+        //actionC.setTextAlignment();
+        //actionC.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View v) {
+        //        Snackbar.make(mRoot, "FAB C Clicked", Snackbar.LENGTH_LONG)
+        //                .show();
+        //    }
+        //});
 
+        final com.getbase.floatingactionbutton.FloatingActionButton actionC = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_c);
+        actionC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(mRoot, "5€ zum Guthaben hinzugefügt", Snackbar.LENGTH_LONG)
+                        .show();
+                ;
+            }
+        });
+
+        final com.getbase.floatingactionbutton.FloatingActionButton actionB = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
+        actionB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(mRoot, "10€ zum Guthaben hinzugefügt", Snackbar.LENGTH_LONG)
+                        .show();
+                ;
+            }
+        });
+
+        final com.getbase.floatingactionbutton.FloatingActionButton actionA = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
+        actionA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(mRoot, "20€ zum Guthaben hinzugefügt", Snackbar.LENGTH_LONG)
+                        .show();;
+            }
+        });
     }
 
 
@@ -91,94 +131,11 @@ public class BargeschActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class EinkaufFragment extends Fragment{
-        public static final java.lang.String ARG_PAGE = "arg_page";
-
-        public EinkaufFragment(){
-
+    private View.OnClickListener mFabClickListener = new View.OnClickListener(){
+        public void onClick(View v){
+            Snackbar.make(mRoot, "FAB Clicked", Snackbar.LENGTH_LONG)
+                    .show();
         }
-
-        public static EinkaufFragment newInstance(int pageNumber){
-            EinkaufFragment einkaufFragment = new EinkaufFragment();
-            Bundle arguments = new Bundle();
-            arguments.putInt(ARG_PAGE, pageNumber);
-            einkaufFragment.setArguments(arguments);
-            return einkaufFragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            Bundle arguments = getArguments();
-            int pageNumber = arguments.getInt(ARG_PAGE);
-            TextView myText = new TextView(getActivity());
-            myText.setText("Kauf");
-            myText.setGravity(Gravity.CENTER);
-            return myText;
-        }
-    }
-
-    public static class BezahlenFragment extends Fragment{
-        public static final java.lang.String ARG_PAGE = "arg_page";
-
-        public BezahlenFragment(){
-
-        }
-
-        public static BezahlenFragment newInstance(int pageNumber){
-            BezahlenFragment bezahlenFragment = new BezahlenFragment();
-            Bundle arguments = new Bundle();
-            arguments.putInt(ARG_PAGE, pageNumber);
-            bezahlenFragment.setArguments(arguments);
-            return bezahlenFragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            Bundle arguments = getArguments();
-            int pageNumber = arguments.getInt(ARG_PAGE);
-            TextView myText = new TextView(getActivity());
-            myText.setText("Bezahlen");
-            myText.setGravity(Gravity.CENTER);
-            return myText;
-        }
-    }
-
-}
-
-
-class MyPagerAdapter extends FragmentPagerAdapter{
-    static private int anzahlTabs = 2;
-
-    public MyPagerAdapter(FragmentManager fm){
-        super(fm);
-    }
-    @Override
-    public Fragment getItem(int position){
-        if(position == 0) {
-            BargeschActivity.EinkaufFragment einkaufFragment = BargeschActivity.EinkaufFragment.newInstance(position);
-            return einkaufFragment;
-        } else if(position == 1){
-            BargeschActivity.BezahlenFragment bezahlenFragment = BargeschActivity.BezahlenFragment.newInstance(position);
-            return bezahlenFragment;
-        }
-        return null;
-    }
-
-    @Override
-    public int getCount(){
-        return anzahlTabs;
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position){
-        if(position == 0) {
-            return "Einkauf";
-        } else if (position == 1){
-            return "Einzahlung";
-        } else {
-            return null;
-        }
-
-    }
+    };
 }
 
