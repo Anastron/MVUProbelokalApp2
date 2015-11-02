@@ -33,6 +33,116 @@
                    android:orientation="vertical">
 
 
+
+
+                   <LinearLayout
+                       android:orientation="vertical"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:weightSum="1">
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Bier"
+                           android:id="@+id/buyBier"
+
+                           android:layout_above="@+id/buyGetraenk"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:layout_margin="4dp"
+                           style="?android:attr/borderlessButtonStyle"
+                           android:background="#f47470" />
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Getränk"
+                           android:id="@+id/buyGetraenk"
+
+                           android:layout_above="@+id/multiple_actions"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:layout_margin="4dp"
+                           style="?android:attr/borderlessButtonStyle"/>
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Snickers, Mars, Twix"
+                           android:id="@+id/buyMars"
+                           android:layout_above="@+id/multiple_actions"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:background="@color/button_material_light"
+                           android:layout_margin="4dp" />
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Duplo, Kinderschokolade"
+                           android:id="@+id/buyDuplo"
+                           android:layout_above="@+id/multiple_actions"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:background="@color/colorPrimaryDark"
+                           android:layout_margin="4dp" />
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Naschzeugs"
+                           android:id="@+id/buyNaschzeugs"
+                           android:layout_above="@+id/multiple_actions"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:background="@color/design_fab_shadow_end_color"
+                           android:layout_margin="4dp" />
+
+                       <Button
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Getränk ausgeben"
+                           android:id="@+id/buyGetraenkSpende"
+                           android:layout_above="@+id/multiple_actions"
+                           android:layout_alignParentLeft="true"
+                           android:layout_alignParentStart="true"
+                           android:layout_alignParentRight="true"
+                           android:layout_alignParentEnd="true"
+                           android:background="@color/material_blue_grey_800"
+                           android:layout_margin="4dp" />
+
+                       <TextView
+                           android:layout_width="fill_parent"
+                           android:layout_height="2dip"
+                           android:background="#FF0099CC"
+                           android:layout_marginTop="20dp" />
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:textAppearance="?android:attr/textAppearanceLarge"
+                           android:text="Guthaben: xx.xx €"
+                           android:id="@+id/GuthabenAnzeige"
+                           android:layout_gravity="center_horizontal"
+                           android:layout_weight="0.26"
+                           android:layout_marginTop="5dp"
+                           android:gravity="center_vertical"
+                           android:layout_marginLeft="10dp"
+                           android:singleLine="false" />
+
+                   </LinearLayout>
+
                    <com.getbase.floatingactionbutton.FloatingActionsMenu
                        android:id="@+id/multiple_actions"
                        android:layout_width="wrap_content"
@@ -43,14 +153,14 @@
                        android:layout_marginBottom="16dp"
                        android:layout_marginRight="16dp"
                        android:layout_marginEnd="16dp"
-                        >
+                       >
                        android:src="@drawable/ic_5"
                        <com.getbase.floatingactionbutton.FloatingActionButton
                            android:id="@+id/action_a"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
                            android:src="@drawable/ic_20"
-                         />
+                           />
 
                        <com.getbase.floatingactionbutton.FloatingActionButton
                            android:id="@+id/action_b"
@@ -58,7 +168,7 @@
                            android:layout_height="wrap_content"
                            android:src="@drawable/ic_10"
 
-                         />
+                           />
                        <com.getbase.floatingactionbutton.FloatingActionButton
                            android:id="@+id/action_c"
                            android:layout_width="wrap_content"
@@ -68,7 +178,6 @@
                            />
 
                    </com.getbase.floatingactionbutton.FloatingActionsMenu>
-
                </RelativeLayout>
 
         <fragment
@@ -80,11 +189,6 @@
             android:name="samdev.de.mvuprobelokalapp.NavigationDrawerFragment"
             tools:layout="@layout/fragment_navigation_drawer" />
 
-
-
     </android.support.v4.widget.DrawerLayout>
-
-
-
 
 </LinearLayout>
