@@ -145,39 +145,38 @@ public class StatistikActivity extends ActionBarActivity {
 
 }
 
-
-class StatisticPagerAdapter extends FragmentPagerAdapter{
+class StatisticPagerAdapter extends FragmentPagerAdapter {
     static private int anzahlTabs = 2;
 
-    public StatisticPagerAdapter(FragmentManager fm){
+    public StatisticPagerAdapter(FragmentManager fm) {
         super(fm);
     }
+
     @Override
-    public Fragment getItem(int position){
-        if(position == 0) {
-            StatistikActivity.AllgemeinStatistikFragment  allgemeinStatistikFragment=  StatistikActivity.AllgemeinStatistikFragment.newInstance(position);
-            return allgemeinStatistikFragment;
-        } else if(position == 1){
-            StatistikActivity.WeitereTabsFragment  weitereTabsFragment=  StatistikActivity.WeitereTabsFragment.newInstance(position);
+    public Fragment getItem(int position) {
+        if (position == 0) {
+            AllgStatistik allgemeinStatistik = AllgStatistik.newInstance(position);
+            return allgemeinStatistik;
+        } else if (position == 1) {
+            StatistikActivity.WeitereTabsFragment weitereTabsFragment = StatistikActivity.WeitereTabsFragment.newInstance(position);
             return weitereTabsFragment;
         }
         return null;
     }
 
     @Override
-    public int getCount(){
+    public int getCount() {
         return anzahlTabs;
     }
 
     @Override
-    public CharSequence getPageTitle(int position){
-        if(position == 0) {
+    public CharSequence getPageTitle(int position) {
+        if (position == 0) {
             return "Allg. Statistiken";
-        } else if (position == 1){
+        } else if (position == 1) {
             return "Mehr";
         } else {
             return null;
         }
-
     }
 }

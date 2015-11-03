@@ -1,0 +1,51 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="samdev.de.mvuprobelokalapp.AllgStatistik">
+
+    <LinearLayout
+        android:id="@+id/Statistik"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_Biere_Getrunken"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Biere getrunken: 20"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView_susses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Süßes gegessen: 10"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView_Biere_spendiert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bier spendiert: 15"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView_Sonst_Get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sonst Getränke: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textView_Geld_aus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geld ausgegeben: 40€"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="25sp" />
+    </LinearLayout>
+</FrameLayout>
