@@ -74,7 +74,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View arg0) {
                 moneyThings(100);
-
+                addGet();
                 Snackbar.make(mRoot, "Getränk gekauft", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -85,7 +85,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 moneyThings(50);
-
+                addSuess();
                 Snackbar.make(mRoot, "Riegel gekauft", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -96,7 +96,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 moneyThings(30);
-
+                addSuess();
                 Snackbar.make(mRoot, "Riegel gekauft", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -107,7 +107,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 moneyThings(100);
-
+                addSuess();
 
                 Snackbar.make(mRoot, "Naschzeug gekauft", Snackbar.LENGTH_LONG)
                         .show();
@@ -119,7 +119,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 moneyThings(100);
-
+                addSpendiert();
                 Snackbar.make(mRoot, "Du hast etwas spendiert! Sehr gut!", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -130,7 +130,7 @@ public class BargeschActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 moneyThings(100);
-
+                addBier();
                 Snackbar.make(mRoot, "Bier gekauft", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -226,6 +226,7 @@ public class BargeschActivity extends ActionBarActivity {
         txt_Guthaben.setText(txt1);
     }
 
+
     private void moreGuthaben(int newGuthaben) {
 
         SharedPreferences guthaben = getSharedPreferences("guthaben", 0);
@@ -257,6 +258,43 @@ public class BargeschActivity extends ActionBarActivity {
         menge += ausgabe;
         Editor editor = statistik.edit();
         editor.putInt("geldausgegeben", menge);
+        editor.commit();
+    }
+
+    private void addBier(){
+        SharedPreferences statistik = getSharedPreferences("statistik", 0);
+        int bier_menge = statistik.getInt("Bier", 0);
+        bier_menge++;
+        Editor editor = statistik.edit();
+        editor.putInt("Bier", bier_menge);
+        editor.commit();
+    }
+
+    private void addSpendiert(){
+        SharedPreferences statistik = getSharedPreferences("statistik", 0);
+        int menge = statistik.getInt("spendiert", 0);
+        menge++;
+        Editor editor = statistik.edit();
+        editor.putInt("spendiert", menge);
+        editor.commit();
+    }
+
+    private void addSuess(){
+        SharedPreferences statistik = getSharedPreferences("statistik", 0);
+        int menge = statistik.getInt("suess", 0);
+        menge++;
+        Editor editor = statistik.edit();
+        editor.putInt("suess", menge);
+        editor.commit();
+    }
+
+
+    private void addGet(){
+        SharedPreferences statistik = getSharedPreferences("statistik", 0);
+        int menge = statistik.getInt("sonstige", 0);
+        menge++;
+        Editor editor = statistik.edit();
+        editor.putInt("sonstige", menge);
         editor.commit();
     }
 

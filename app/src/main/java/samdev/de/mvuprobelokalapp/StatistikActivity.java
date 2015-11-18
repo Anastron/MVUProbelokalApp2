@@ -30,7 +30,6 @@ public class StatistikActivity extends ActionBarActivity {
     private ViewPager mPager;
     private StatisticPagerAdapter mAdapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,31 +90,6 @@ public class StatistikActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class AllgemeinStatistikFragment extends Fragment{
-        public static final java.lang.String ARG_PAGE = "arg_page";
-
-        public AllgemeinStatistikFragment(){
-
-        }
-
-        public static AllgemeinStatistikFragment newInstance(int pageNumber){
-            AllgemeinStatistikFragment allgemeinStatistikFragment = new AllgemeinStatistikFragment();
-            Bundle arguments = new Bundle();
-            arguments.putInt(ARG_PAGE, pageNumber);
-            allgemeinStatistikFragment.setArguments(arguments);
-            return allgemeinStatistikFragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            Bundle arguments = getArguments();
-            int pageNumber = arguments.getInt(ARG_PAGE);
-            TextView myText = new TextView(getActivity());
-            myText.setText("Allgemeine Statistiken über den Kauf von verschiedenen Produkten im Probelokal");
-            myText.setGravity(Gravity.CENTER);
-            return myText;
-        }
-    }
 
     public static class WeitereTabsFragment extends Fragment{
         public static final java.lang.String ARG_PAGE = "arg_page";
