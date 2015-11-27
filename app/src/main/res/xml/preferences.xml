@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Benutzer Daten">
+        <EditTextPreference android:title="Name"
+            android:key="username"
+            android:summary="Bitte Trage deinn Namen ein"/>
+        <EditTextPreference
+            android:key="userpassword"
+            android:title="Passwort"
+            android:summary="Hier kannst du ein neues Passwort eintragen"
+            android:inputType="textPassword" />
+
+        <EditTextPreference android:title="Instrument"
+            android:key="instrument"
+            android:summary="Bitte Trage deine Stimme ein"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Datenschutz">
+        <CheckBoxPreference android:title="Ranglisten Eintrag"
+            android:defaultValue="false"
+            android:summary="Ist dieses Feld aktiviert, wird deine Statistik in eine Rangliste geladen."
+            android:key="ranking" />
+
+        <CheckBoxPreference android:title="Zurücksetzen"
+            android:defaultValue="false"
+            android:summary="Ist dieses Feld aktiviert, werden beim nächsten starten der App alle Werte zurückgesetzt."
+            android:key="reset"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

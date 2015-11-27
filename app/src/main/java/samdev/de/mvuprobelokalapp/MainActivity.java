@@ -1,13 +1,20 @@
 package samdev.de.mvuprobelokalapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
+import android.support.design.widget.Snackbar;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -33,7 +40,16 @@ public class MainActivity extends ActionBarActivity {
                 (NavigationDrawerFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout), toolbar);
 
+        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean bReset = SP.getBoolean("reset", false);
 
+        if(bReset)
+        {
+            resetData();
+            SharedPreferences.Editor editor = SP.edit();
+            editor.putBoolean("reset", false);
+            editor.commit();
+        }
 
     }
 
@@ -53,8 +69,10 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(this, PreferenceActivity.class);
+            startActivity(i);
         }
+
         if(id == R.id.action_info){
             startActivity(new Intent(this, AppInfo.class));
         }
@@ -70,5 +88,35 @@ public class MainActivity extends ActionBarActivity {
 
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void resetData()
+    {
+        SharedPreferences guthaben = getSharedPreferences("guthaben", 0);
+        SharedPreferences.Editor editor = guthaben.edit();
+        editor.putInt("guthaben", 0);
+        editor.commit();
+
+
+        SharedPreferences statistik = getSharedPreferences("statistik", 0);
+
+        editor = statistik.edit();
+        editor.putInt("geldausgegeben",0);
+        editor.putInt("Bier", 0);
+        editor.putInt("spendiert", 0);
+        editor.putInt("suess", 0);
+        editor.putInt("sonstige", 0);
+        editor.commit();
+
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Zurückgesetzt");
+        alertDialog.setMessage("Alle Werte wurden zurückgesetzt!");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 }

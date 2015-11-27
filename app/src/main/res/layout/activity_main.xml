@@ -1,3 +1,4 @@
+
 <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,7 +10,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="samdev.de.mvuprobelokalapp.MainActivity">
+        tools:context="samdev.de.mvuprobelokalapp.MainActivity"
+        >
 
         <include
             android:id="@+id/app_bar"
@@ -55,6 +57,5 @@
         tools:layout="@layout/fragment_navigation_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
-
 
 

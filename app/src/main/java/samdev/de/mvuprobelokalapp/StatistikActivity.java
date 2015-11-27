@@ -71,7 +71,8 @@ public class StatistikActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            Intent i = new Intent(this, PreferenceActivity.class);
+            startActivity(i);
         }
         if(id == R.id.action_info){
             startActivity(new Intent(this, AppInfo.class));
