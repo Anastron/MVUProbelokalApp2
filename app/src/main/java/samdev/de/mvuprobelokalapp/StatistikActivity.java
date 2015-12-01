@@ -121,7 +121,7 @@ public class StatistikActivity extends ActionBarActivity {
 }
 
 class StatisticPagerAdapter extends FragmentPagerAdapter {
-    static private int anzahlTabs = 2;
+    static private int anzahlTabs = 3;
 
     public StatisticPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -132,7 +132,10 @@ class StatisticPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             AllgStatistik allgemeinStatistik = AllgStatistik.newInstance(position);
             return allgemeinStatistik;
-        } else if (position == 1) {
+        } else if (position == 1){
+            AchievmentFragment achievmentFragment = AchievmentFragment.newInstance(position);
+            return achievmentFragment;
+        } else if (position == 2) {
             StatistikActivity.WeitereTabsFragment weitereTabsFragment = StatistikActivity.WeitereTabsFragment.newInstance(position);
             return weitereTabsFragment;
         }
@@ -148,7 +151,9 @@ class StatisticPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
             return "Allg. Statistiken";
-        } else if (position == 1) {
+        } else if(position == 1){
+          return "Achievments";
+        } else if (position == 2) {
             return "Mehr";
         } else {
             return null;
