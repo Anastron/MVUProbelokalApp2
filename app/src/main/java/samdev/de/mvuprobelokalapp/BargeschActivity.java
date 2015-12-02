@@ -1,6 +1,7 @@
 package samdev.de.mvuprobelokalapp;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -15,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -108,7 +110,6 @@ public class BargeschActivity extends ActionBarActivity {
             public void onClick(View v) {
                 moneyThings(100);
                 addSuess();
-
                 Snackbar.make(mRoot, "Naschzeug gekauft", Snackbar.LENGTH_LONG)
                         .show();
             }
@@ -260,6 +261,20 @@ public class BargeschActivity extends ActionBarActivity {
         Editor editor = statistik.edit();
         editor.putInt("geldausgegeben", menge);
         editor.commit();
+
+        if(menge >= 50 * 100 && (menge-ausgabe) < 50 * 100 ){ // 50
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("Unterstützer");
+            alertDialog.setMessage("50 Euro sind durch dich schon in der Kasse gelandet. \nGönne dir etwas Süßes als Belohnung.");
+            alertDialog.setIcon(R.drawable.moneyachievment1);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
     private void addBier(){
@@ -269,6 +284,34 @@ public class BargeschActivity extends ActionBarActivity {
         Editor editor = statistik.edit();
         editor.putInt("Bier", bier_menge);
         editor.commit();
+
+        if(bier_menge == 24){ //24
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("Kasten Bier");
+            alertDialog.setMessage("Du hast deinen ersten Kasten Bier getrunken! \nSchnapp dir dafür ein Bier.");
+            alertDialog.setIcon(R.drawable.beericon1);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+
+        if(bier_menge == 120){ // 120
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("120 Biere!");
+            alertDialog.setMessage("Du hast tatsächlich 120 Biere getrunken. 5 Kästen sind das! WOW! \nSchnapp dir dafür ein Bier.");
+            alertDialog.setIcon(R.drawable.beericon2);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
     private void addSpendiert(){
@@ -278,6 +321,20 @@ public class BargeschActivity extends ActionBarActivity {
         Editor editor = statistik.edit();
         editor.putInt("spendiert", menge);
         editor.commit();
+
+        if(menge == 20){ // 20
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("Spendierfreudig");
+            alertDialog.setMessage("Du hast schon 20 Getränke ausgegeben. \nGönne dir dafür selbt mal ein Getränk.");
+            alertDialog.setIcon(R.drawable.giftachievment);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
     private void addSuess(){
@@ -287,6 +344,20 @@ public class BargeschActivity extends ActionBarActivity {
         Editor editor = statistik.edit();
         editor.putInt("suess", menge);
         editor.commit();
+
+        if(menge == 30){ // 30
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("Du süßes Ding");
+            alertDialog.setMessage("Du hast 30 süße Sachen gekauft. \nDu darfst dir nun nochmal etwas Süßes gönnen!");
+            alertDialog.setIcon(R.drawable.sweetachievment);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
     }
 
 
@@ -297,7 +368,20 @@ public class BargeschActivity extends ActionBarActivity {
         Editor editor = statistik.edit();
         editor.putInt("sonstige", menge);
         editor.commit();
-    }
 
+        if(menge == 25){ // 25
+            AlertDialog alertDialog = new AlertDialog.Builder(BargeschActivity.this).create();
+            alertDialog.setTitle("25 Getränke");
+            alertDialog.setMessage("Das war dein 25 Getränk. \nGönne dir dafür ein Getränk.");
+            alertDialog.setIcon(R.drawable.sonstgetr);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+    }
 }
 
