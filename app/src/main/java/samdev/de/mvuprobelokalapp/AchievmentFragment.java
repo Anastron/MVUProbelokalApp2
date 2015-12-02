@@ -1,20 +1,15 @@
 package samdev.de.mvuprobelokalapp;
 
 
-import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 import samdev.de.mvuprobelokalapp.adapters.AchievmentListAdapter;
 import samdev.de.mvuprobelokalapp.other.Achievment;
@@ -50,27 +45,44 @@ public class AchievmentFragment extends Fragment {
         View myInflatedView = inflater.inflate(R.layout.fragment_achievment, container, false);
 
         achievmentView = (ListView) myInflatedView.findViewById(R.id.listview_achievments);
-
-        Achievment achievment1 = new Achievment();
-        achievment1.setTitle("Armin");
-        achievment1.setComment("Armiin arbeitet bei Junker");
-        achievment1.setThumbnail(R.drawable.ic_mailsend);
-
-        Achievment achievment2 = new Achievment();
-        achievment2.setTitle("Mike");
-        achievment2.setComment("Mike arbeitet auch bei Junker");
-        achievment2.setThumbnail(R.drawable.ic_mailsend);
-
-
-        ArrayList<Achievment> achievmentList = new ArrayList<Achievment>();
-        achievmentList.add(achievment1);
-        achievmentList.add(achievment2);
-
-
-        achievmentView.setAdapter(new AchievmentListAdapter(achievmentList, getActivity()));
-
+        checkForAchievments();
 
         return myInflatedView;
+    }
+
+    private void checkForAchievments(){
+
+        SharedPreferences statistik = this.getActivity().getSharedPreferences("statistik", 0);
+        ArrayList<Achievment> achievmentList = new ArrayList<>();
+        int anzahlBier = statistik.getInt("Bier", 0);
+        boolean bNoAchievment = true;
+
+        if(anzahlBier >= 24){
+            Achievment bier24Achievment = new Achievment();
+            bier24Achievment.setTitle("1 Kasten");
+            bier24Achievment.setComment("Du hast 24 Biere im Probelokal getrunken");
+            bier24Achievment.setThumbnail(R.drawable.ic_mailsend);
+            achievmentList.add(bier24Achievment);
+            bNoAchievment = false;
+        }
+        if(anzahlBier >= 120){
+            Achievment bier24Achievment = new Achievment();
+            bier24Achievment.setTitle("5 Kästen");
+            bier24Achievment.setComment("Du hast 120 Biere im Probelokal getrunken");
+            bier24Achievment.setThumbnail(R.drawable.ic_mailsend);
+            achievmentList.add(bier24Achievment);
+            bNoAchievment = false;
+        }
+
+        if(bNoAchievment){
+            Achievment noAchievment = new Achievment();
+            noAchievment.setTitle("Keine Erfolge");
+            noAchievment.setComment("Du hast noch nichts besonderliches Erreicht");
+            noAchievment.setThumbnail(R.drawable.noachievment);
+            achievmentList.add(noAchievment);
+        }
+
+        achievmentView.setAdapter(new AchievmentListAdapter(achievmentList, getActivity()));
     }
 
 }
