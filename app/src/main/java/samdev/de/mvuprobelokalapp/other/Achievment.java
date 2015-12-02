@@ -9,8 +9,7 @@ public class Achievment {
 
     private String title;
     private String comment;
-    private String thumbnail;
-    private Image thumbail;
+    private int thumbnail;
 
     public Achievment(){
 
@@ -18,11 +17,12 @@ public class Achievment {
 
     public Achievment(String title,
                  String comment,
-                 String thumbnail
+                 int thumbnail
                  ){
         this.title = title;
         this.comment = comment;
         this.thumbnail = thumbnail;
+
 
     }
 
@@ -42,12 +42,13 @@ public class Achievment {
         this.comment = comment;
     }
 
-    public String getThumbnail() {
+    public int getThumbnail() {
         return thumbnail;
     }
 
-    public void setThumbnail(String Thumbnail) {
+    public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
     }
+
 
 }
