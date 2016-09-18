@@ -73,6 +73,9 @@ public class NavigationDrawerFragment extends Fragment {
                 } else if (position == 1){
                     startActivity(new Intent(getActivity(), StatistikActivity.class));
                     getActivity().finish();
+                } else if(position == 2){
+                    startActivity(new Intent(getActivity(), TerminActivity.class));
+                    getActivity().finish();
                 } else if(position == 4){
                     startActivity(new Intent(getActivity(), MainActivity.class));
                     getActivity().finish();
