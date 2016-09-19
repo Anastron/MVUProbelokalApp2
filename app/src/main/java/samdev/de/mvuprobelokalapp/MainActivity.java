@@ -102,13 +102,19 @@ public class MainActivity extends ActionBarActivity {
 
 
         SharedPreferences statistik = getSharedPreferences("statistik", 0);
-
         editor = statistik.edit();
         editor.putInt("geldausgegeben",0);
         editor.putInt("Bier", 0);
         editor.putInt("spendiert", 0);
         editor.putInt("suess", 0);
         editor.putInt("sonstige", 0);
+        editor.commit();
+
+        SharedPreferences user = getSharedPreferences("user", 0);
+        editor = user.edit();
+        editor.putString("name", "");
+        editor.putString("password", "");
+        editor.putString("rechte", "");
         editor.commit();
 
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
