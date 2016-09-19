@@ -85,6 +85,9 @@ public class MainActivity extends ActionBarActivity {
         if(id == R.id.sorrymail){
             startActivity(new Intent(this, SorryMail.class));
         }
+        if(id == R.id.refresh){
+
+        }
 
 
         return super.onOptionsItemSelected(item);
