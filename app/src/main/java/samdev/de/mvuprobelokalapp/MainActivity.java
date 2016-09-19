@@ -109,14 +109,14 @@ public class MainActivity extends ActionBarActivity {
         editor.putInt("suess", 0);
         editor.putInt("sonstige", 0);
         editor.commit();
-
+/*
         SharedPreferences user = getSharedPreferences("user", 0);
         editor = user.edit();
         editor.putString("name", "");
         editor.putString("password", "");
         editor.putString("rechte", "");
         editor.commit();
-
+*/
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
         alertDialog.setTitle("Zurückgesetzt");
         alertDialog.setMessage("Alle Werte wurden zurückgesetzt!");
